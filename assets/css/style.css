@@ -1,36 +1,104 @@
 body {
   margin: 0;
   font-family: var(--font-main);
-  color: var(--text-color);
+  color: var(--dark);
 }
 
 .header {
-    background: white;
-    padding: 15px 40px;
-    position: sticky;
-    top: 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,.05);
+    background: var(--secondary);
+    border-bottom: 1px solid #eee;
 }
 
-.container {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+.header-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LEFT SIDE */
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .logo {
-    height:60px;
+    height: 70px;
 }
 
-nav a {
-    margin-left:25px;
-    text-decoration:none;
-    color:var(--dark);
-    font-weight:500;
+/* BRAND */
+.brand h1 {
+    margin: 0;
+    color: #a56c73;
+    font-size: 26px;
 }
 
-nav a:hover {
-    color:var(--primary);
+/* MENU */
+.menu {
+    margin-top: 5px;
+}
+
+.menu a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 14px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* зміна кольору */
+.menu a:hover {
+    color: var(--primary);
+}
+
+/* underline animation */
+.menu a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.menu a:hover::after {
+    width: 100%;
+}
+/* RIGHT SIDE */
+.header-right {
+    text-align: right;
+}
+
+.phone {
+    display: block;
+    margin-bottom: 8px;
+    text-decoration: none;
+    color: var(--primary);
+}
+
+/* BUTTON */
+.order-btn {
+    background: var(--primary);
+    color: white;
+    padding: 5px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+
+    border: 2px solid var(--primary);
+
+    transition: 0.3s;
+}
+
+.order-btn:hover {
+    background: transparent;
+    color: var(--primary);
 }
 
 .hero {
@@ -85,9 +153,20 @@ nav a:hover {
     transform:scale(1.03);
 }
 .footer {
-    background:#faf6f3;
-    text-align:center;
-    padding:40px;
+    background: #f5f5f5;
+    padding: 30px 20px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-logo {
+    height: 60px;
 }
 @media(max-width:768px){
 

@@ -1,11 +1,19 @@
 :root {
 
- --primary: #c7848c;     /* рожево-пудровий */
---secondary: #f4e7df;   /* теплий фон */
---accent: #9aa78a;      /* листя */
---dark: #3a3a3a;        /* текст */
---white: #ffffff;
-  --font-main: sans-serif;
+ /* BRAND COLORS */
+ --primary: #a56c73;
+ --secondary: #f4e7df;
+ --accent: #9aa78a;
+
+ /* TEXT */
+ --dark: #3a3a3a;
+ --white: #ffffff;
+
+ /* FONT */
+ --font-main: sans-serif;
+
+ /* LAYOUT */
+ --container-width: 1200px;
 }
 @media (min-width:768px) {
 
