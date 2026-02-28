@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  color: var(--text-color);
+}
+
+.header {
+  padding: 20px;
+  text-align: center;
+}
+
+.hero {
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,17 @@
+:root {
+
+  --primary-color: #d8a7b1;
+  --secondary-color: #f4ece6;
+  --accent-color: #7fa998;
+
+  --text-color: #333;
+
+  --font-main: sans-serif;
+}
+@media (min-width:768px) {
+
+.hero {
+    height: 80vh;
+}
+
+}
