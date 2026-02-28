@@ -1,11 +1,10 @@
 :root {
 
-  --primary-color: #d8a7b1;
-  --secondary-color: #f4ece6;
-  --accent-color: #7fa998;
-
-  --text-color: #333;
-
+ --primary: #c7848c;     /* рожево-пудровий */
+--secondary: #f4e7df;   /* теплий фон */
+--accent: #9aa78a;      /* листя */
+--dark: #3a3a3a;        /* текст */
+--white: #ffffff;
   --font-main: sans-serif;
 }
 @media (min-width:768px) {
