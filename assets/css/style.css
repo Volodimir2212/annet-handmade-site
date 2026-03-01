@@ -322,25 +322,47 @@ nav {
     height: 80vh;
 }
 .header-container{
-    flex-direction:column;
+    display:grid;
+    grid-template-columns:1fr;
     gap:10px;
-    text-align:center;
-    padding: 10px;
 }
 
+/* --- ROW 1 --- */
 .header-left{
-    flex-direction:column;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* logo + title inline */
+.brand{
+    display:flex;
+    align-items:center;
 }
 
 .brand h1{
     font-size:18px;
+    white-space:nowrap;
 }
 
+/* --- ROW 2 --- */
 .header-right{
+
+    display:flex;
+    flex-direction:row;   /* 🔥 КЛЮЧ */
+    justify-content:space-between;
     align-items:center;
+
+    width:100%;
+
+    text-align:unset;     /* 🔥 ВАЖЛИВО */
 }
+
+
 .header{
     position:relative;
+    padding:5px 0;
+    box-shadow:0 2px 10px rgba(0,0,0,.06);
 }
 .phone{
     justify-content:center;
