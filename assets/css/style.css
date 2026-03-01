@@ -63,7 +63,7 @@ body {
 .menu a {
     margin-right: 15px;
     text-decoration: none;
-    color: var(--dark);
+    color: var(--accent);
     font-size: 14px;
     position: relative;
     transition: color 0.3s ease;
@@ -215,6 +215,7 @@ body {
     justify-content: space-between;
     max-width: 1200px;
     margin: auto;
+    color: var(--accent);
 }
 
 .footer-logo {
@@ -255,6 +256,7 @@ body {
 .category-card:hover{
     transform:translateY(-8px);
     box-shadow:0 15px 35px rgba(149,103,106,.35);
+    color:var(--primary);
 }
 
 .category-card img{
@@ -286,6 +288,7 @@ body {
     display:flex;
     align-items:center;
     justify-content:center;
+    color: var(--accent);
 }
 .socials{
     display:flex;
@@ -343,8 +346,109 @@ body {
     background:var(--primary);
     border-radius:3px;
 }
-@media(max-width:768px){
+.info-block{
+    max-width:900px;
+    margin:60px auto;
+    padding:40px 30px;
+color:var(--accent);
+    background:white;
+    border-radius:18px;
 
+   box-shadow:
+        0 10px 30px rgba(149,103,106,.08);
+
+    border:1px solid rgba(149,103,106,.08);
+}
+
+.info-block h2{
+    color:var(--primary);
+    margin-bottom:20px;
+}
+.info-hero{
+    text-align:center;
+    padding:80px 20px 40px;
+    max-width:900px;
+    margin:auto;
+}
+.info-hero h1{
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.info-hero p{
+    color:var(--accent);
+}
+.steps{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.step{
+    background:var(--secondary);
+    padding:20px;
+    border-radius:10px;
+}
+.info-cta{
+    text-align:center;
+    margin:80px auto;
+    padding:40px 20px;
+
+    max-width:700px;
+}
+
+.info-cta h2{
+    color:var(--primary);
+    margin-bottom:25px;
+}
+@media(max-width:768px){
+.info-hero{
+    padding:60px 15px 20px;
+}
+
+.info-block{
+    margin:30px 15px;
+    padding:25px 20px;
+}
+
+/* steps стають колонкою */
+.steps{
+    grid-template-columns:1fr;
+}
+
+/* CTA */
+.info-cta{
+    margin:50px 15px;
+}
+
+.info-cta .order-btn{
+    display:inline-block;
+    width:100%;
+    max-width:280px;
+}.info-hero{
+    padding:60px 15px 20px;
+}
+
+.info-block{
+    margin:30px 15px;
+    padding:25px 20px;
+}
+
+/* steps стають колонкою */
+.steps{
+    grid-template-columns:1fr;
+}
+
+/* CTA */
+.info-cta{
+    margin:50px 15px;
+}
+
+.info-cta .order-btn{
+    display:inline-block;
+    width:100%;
+    max-width:280px;
+}
 nav {
     display:none;
 }
