@@ -1,24 +1,18 @@
 :root {
 
  /* BRAND COLORS */
- --primary: #a56c73;
- --secondary: #f4e7df;
+ --primary: #95676a;
+ --secondary: #f7f3f3;
  --accent: #9aa78a;
 
  /* TEXT */
- --dark: #3a3a3a;
- --white: #ffffff;
-
+ --dark: #333;
+ --light: #ffffff;
+--footer:#efe7e7;
  /* FONT */
  --font-main: sans-serif;
 
  /* LAYOUT */
  --container-width: 1200px;
 }
-@media (min-width:768px) {
 
-.hero {
-    height: 80vh;
-}
-
-}
