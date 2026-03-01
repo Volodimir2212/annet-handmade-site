@@ -39,7 +39,7 @@ body {
 }
 
 .logo {
-    height: 70px;
+    height: 80px;
 }
 
 /* BRAND */
@@ -104,8 +104,8 @@ body {
 }
 
 .phone img{
-    width:18px;
-    height:18px;
+    width:36px;
+    height:36px;
 }
 
 /* BUTTON */
@@ -217,9 +217,10 @@ body {
 }
 
 .categories-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
+     display:grid;
+    grid-template-columns:repeat(2,1fr);
     gap:30px;
+    padding:60px 20px;
 }
 
 .category-card{
@@ -246,17 +247,59 @@ body {
 }
 .socials{
     display:flex;
-    gap:15px;
+    gap:12px;
 }
 
-.socials img{
-    width:26px;
-    height:26px;
+.social{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:white;
+    border-radius:50%;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+
     transition:.3s;
 }
 
-.socials img:hover{
-    transform:scale(1.15);
+.social img{
+    width: 36px;
+    height:36px;
+}
+
+.social:hover{
+    transform:translateY(-3px);
+    box-shadow:0 6px 15px rgba(0,0,0,.15);
+}
+.footer-phone{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    color:var(--dark);
+}
+.footer-phone img{
+     width: 36px;
+    height:36px;
+}
+.burger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+    cursor:pointer;
+}
+
+.burger span{
+    width:25px;
+    height:3px;
+    background:var(--primary);
+    border-radius:3px;
 }
 @media(max-width:768px){
 
@@ -282,6 +325,7 @@ nav {
     flex-direction:column;
     gap:10px;
     text-align:center;
+    padding: 10px;
 }
 
 .header-left{
@@ -289,13 +333,15 @@ nav {
 }
 
 .brand h1{
-    font-size:20px;
+    font-size:18px;
 }
 
 .header-right{
     align-items:center;
 }
-
+.header{
+    position:relative;
+}
 .phone{
     justify-content:center;
 }
@@ -303,5 +349,37 @@ nav {
     flex-direction:column;
     gap:15px;
     text-align:center;
+}
+.burger{
+    display:flex;
+}
+
+.menu{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+
+    background:white;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    max-height:0;
+    overflow:hidden;
+
+    transition:.3s;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.menu a{
+    padding:15px;
+    width:100%;
+    text-align:center;
+}
+
+.menu.active{
+    max-height:300px;
 }
 }
