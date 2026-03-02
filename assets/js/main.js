@@ -71,72 +71,91 @@ grid.innerHTML += `
 </div>
 `;
 
+});}
+document.addEventListener('click', (e) => {
+
+const card = e.target.closest('[data-category]');
+if(!card) return;
+
+const categoryTitle = card.getAttribute('data-category');
+
+const category = works.find(
+w => w.title === categoryTitle
+);
+
+if(!category) return;
+
+openGalleryModal(category.images);
+
 });
-grid.addEventListener('click', (e) => {
-  const card = e.target.closest('.gallery-card');
-  if (!card) return;
+function openGalleryModal(images){
 
-  const categoryTitle = card.getAttribute('data-category');
-  const category = works.find(w => w.title === categoryTitle);
-  if (!category) return;
+const modal = document.createElement('div');
+modal.className = "modal-gallery";
 
-  openGalleryModal(category.images);
+const content = document.createElement('div');
+content.className = "modal-content";
+
+images.forEach(img=>{
+
+const image = document.createElement('img');
+
+image.src = img.src;
+image.alt = img.alt;
+
+image.addEventListener("click",()=>{
+openFullscreen(img.src,img.alt);
 });
 
-function openGalleryModal(images) {
-  // Створюємо контейнер модального вікна
-  const modal = document.createElement('div');
-  modal.classList.add('modal-gallery');
-  modal.style.position = 'fixed';
-  modal.style.top = 0;
-  modal.style.left = 0;
-  modal.style.width = '100vw';
-  modal.style.height = '100vh';
-  modal.style.background = 'rgba(0,0,0,0.8)';
-  modal.style.display = 'flex';
-  modal.style.justifyContent = 'center';
-  modal.style.alignItems = 'center';
-  modal.style.overflow = 'auto';
-  modal.style.zIndex = 1000;
+content.appendChild(image);
 
-  // Контент галереї
-  const galleryContent = document.createElement('div');
-  galleryContent.style.background = '#fff';
-  galleryContent.style.padding = '20px';
-  galleryContent.style.borderRadius = '8px';
-  galleryContent.style.maxWidth = '90vw';
-  galleryContent.style.maxHeight = '90vh';
-  galleryContent.style.overflowY = 'auto';
-  galleryContent.style.display = 'flex';
-  galleryContent.style.flexWrap = 'wrap';
-  galleryContent.style.gap = '10px';
+});
 
-  images.forEach(img => {
-    const imageElem = document.createElement('img');
-    imageElem.src = img.src;
-    imageElem.alt = img.alt;
-    imageElem.style.maxWidth = '200px';
-    imageElem.style.borderRadius = '4px';
-    galleryContent.appendChild(imageElem);
-  });
+// ✅ кнопка закриття
+const closeBtn = document.createElement('div');
+closeBtn.className = 'modal-close';
+closeBtn.innerHTML = "&times;";
 
-  // Додаємо кнопку закриття
-  const closeBtn = document.createElement('button');
-  closeBtn.textContent = 'Закрити';
-  closeBtn.style.position = 'absolute';
-  closeBtn.style.top = '20px';
-  closeBtn.style.right = '20px';
-  closeBtn.style.padding = '10px 15px';
-  closeBtn.style.fontSize = '16px';
-  closeBtn.style.cursor = 'pointer';
+closeBtn.addEventListener('click', () => {
+  modal.remove();
+});
+const footer = document.createElement('div');
+footer.className = "modal-footer";
 
-  closeBtn.addEventListener('click', () => {
-    document.body.removeChild(modal);
-  });
+footer.innerHTML = `
+  <a href="contacts.html" class="btn-primary">
+    Замовити
+</a>
+`;
+// ✅ ВАЖЛИВО — додаємо в modal
+modal.appendChild(closeBtn);
+modal.appendChild(content);
+modal.appendChild(footer);
+// закриття по фону
+modal.addEventListener("click",(e)=>{
+if(e.target === modal){
+modal.remove();
+}
+});
 
-  modal.appendChild(closeBtn);
-  modal.appendChild(galleryContent);
-  document.body.appendChild(modal);
+document.body.appendChild(modal);
+}
+function openFullscreen(src,alt){
+
+const viewer = document.createElement("div");
+viewer.className="fullscreen-img";
+
+const img=document.createElement("img");
+img.src=src;
+img.alt=alt;
+
+viewer.appendChild(img);
+
+viewer.addEventListener("click",()=>{
+viewer.remove();
+});
+
+document.body.appendChild(viewer);
+
 }
 
-}
