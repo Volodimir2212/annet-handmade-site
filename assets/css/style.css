@@ -110,27 +110,46 @@ body {
 
 /* BUTTON */
 .btn-primary{
-    background: var(--primary);
-    color: white;
+    background:var(--primary);
+    color:#fff;
 
-    padding: 14px 32px;
-    border-radius: 30px;
+    padding:10px 24px;
+    border-radius:30px;
 
-    text-decoration:none;
-    border:none;
+    border:2px solid var(--primary);
+
+    font-weight:600;
+    letter-spacing:.3px;
+
     cursor:pointer;
+    transition:all .3s ease;
 
-    font-weight:500;
-
-    transition:.3s;
+    /* ⭐ об'єм */
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.15),
+        0 2px 4px rgba(0,0,0,.1);
 }
 
 .btn-primary:hover{
-    background:#7e5457;
-    transform:translateY(-2px);
-    box-shadow:0 6px 15px rgba(0,0,0,.15);
-}
+    background:white;
+    color:var(--primary);
 
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.18),
+        0 3px 6px rgba(0,0,0,.12);
+}
+.btn-primary:active{
+    transform:translateY(0);
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.15);
+}
+a{
+    text-decoration:none;
+    color:inherit;
+}
 .hero{
     min-height:90vh;
 
@@ -401,6 +420,81 @@ color:var(--accent);
     color:var(--primary);
     margin-bottom:25px;
 }
+.contacts-hero{
+    text-align:center;
+    padding:80px 20px 40px;
+    max-width:900px;
+    margin:auto;
+}
+
+.contacts-hero h1{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+
+.contacts-hero p{
+    color:var(--accent);
+}
+.contacts-wrapper{
+    max-width:1100px;
+    margin:auto;
+    padding:40px 20px 80px;
+
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:40px;
+}
+.contact-card{
+    background:white;
+    padding:40px 30px;
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 30px rgba(149,103,106,.08);
+
+    border:1px solid rgba(149,103,106,.08);
+}
+
+.contact-card h2{
+    color:var(--primary);
+    margin-bottom:25px;
+}
+.contact-card p{
+    color: var(--accent);
+}
+.contact-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    text-decoration:none;
+    color:var(--accent);
+
+    padding:12px;
+    border-radius:12px;
+
+    transition:.3s;
+}
+
+.contact-item img{
+    width:28px;
+    height:28px;
+}
+
+.contact-item:hover{
+    background:var(--secondary);
+    transform:translateX(5px);
+}
+.contact-note{
+    margin:20px 0;
+    color:var(--accent);
+}
+.header-actions{
+   display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:10px;
+}
 @media(max-width:768px){
 .info-hero{
     padding:60px 15px 20px;
@@ -453,7 +547,28 @@ nav {
     display:none;
 }
 
+.contacts-wrapper{
+    grid-template-columns:1fr;
+    gap:25px;
+    padding:20px 15px 60px;
+}
 
+.contact-card{
+    padding:25px 20px;
+}
+
+.contacts-hero{
+    padding:60px 15px 20px;
+}
+
+.contact-item{
+    padding:14px;
+}
+
+.contact-item img{
+    width:32px;
+    height:32px;
+}
 
 
 .logo{
@@ -476,50 +591,49 @@ nav {
 }
 
 .header-container{
-    display:grid;
-    grid-template-columns:1fr;
+    flex-direction:column;
     gap:10px;
 }
 
-/* --- ROW 1 --- */
+/* ---------- ROW 1 ---------- */
 .header-left{
-    display:flex;
-    align-items:center;
-    gap:10px;
+    justify-content:center;
 }
 
-/* logo + title inline */
-.brand{
-    display:flex;
-    align-items:center;
-}
-
-.brand h1{
-    font-size:18px;
-    white-space:nowrap;
-}
-
-/* --- ROW 2 --- */
+/* ---------- ROW 2 ---------- */
 .header-right{
-
     display:flex;
-    flex-direction:row;   /* 🔥 КЛЮЧ */
+    flex-direction:row;      /* ⭐ строго ряд */
     justify-content:space-between;
     align-items:center;
-
     width:100%;
-
-    text-align:unset;     /* 🔥 ВАЖЛИВО */
 }
 
-
-.header{
-    position:relative;
-    padding:5px 0;
-    box-shadow:0 2px 10px rgba(0,0,0,.06);
-}
-.phone{
+/* ⭐ меню НІКОЛИ не росте */
+.menu-toggle{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
     justify-content:center;
+}
+
+/* права сторона */
+.header-actions{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:6px;
+}
+
+/* телефон */
+.phone{
+    white-space:nowrap;
+    font-size:14px;
+}
+
+/* кнопка */
+.btn-primary{
+    padding:8px 18px;
 }
 .footer-content{
     flex-direction:column;
