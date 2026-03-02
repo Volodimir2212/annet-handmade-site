@@ -585,7 +585,9 @@ nav {
 .hero-content{
     padding:25px;
 }
-
+.header{
+    position: relative;
+}
 .hero h1{
     font-size:26px;
 }
