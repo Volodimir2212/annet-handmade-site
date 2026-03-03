@@ -34,6 +34,7 @@ const works = [
         {src:"assets/images/gallery/ribbon/7_result.webp", alt:"Букет із атласних стрічок handmade"},
         {src:"assets/images/gallery/ribbon/8_result.webp", alt:"Букет із атласних стрічок handmade"},
         {src:"assets/images/gallery/ribbon/9_result.webp", alt:"Букет із атласних стрічок handmade"},
+         {src:"assets/images/gallery/ribbon/10_result.webp", alt:"Букет із атласних стрічок handmade"},
    ]
 },
 {
@@ -41,7 +42,8 @@ const works = [
     images:[{src:"assets/images/gallery/decor/1_result.webp",alt:"Декорування предметів ручної роботи"},
     {src:"assets/images/gallery/decor/2_result.webp",alt:"Декорування предметів ручної роботи"},
 {src:"assets/images/gallery/decor/3_result.webp",alt:"Декорування предметів ручної роботи"},
-{src:"assets/images/gallery/decor/4_result.webp",alt:"Декорування предметів ручної роботи"},]
+{src:"assets/images/gallery/decor/4_result.webp",alt:"Декорування предметів ручної роботи"},
+{src:"assets/images/gallery/decor/5_result.webp",alt:"Декорування предметів ручної роботи"},]
 },
 {
     title:"В'язання",
