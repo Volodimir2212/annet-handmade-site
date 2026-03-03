@@ -13,40 +13,40 @@ document.querySelectorAll(".menu a")
 const works = [
 {
     title:"Їстівний букет",
-    images:[ { src: "assets/images/gallery/food/1.webp", alt: "Їстівний подарунковий букет ручної роботи" },
-      { src: "assets/images/gallery/food/2.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-     { src: "assets/images/gallery/food/3.webp", alt: "Їстівний подарунковий букет ручної роботи" },
-      { src: "assets/images/gallery/food/4.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-     { src: "assets/images/gallery/food/5.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-     { src: "assets/images/gallery/food/6.webp", alt: "Їстівний подарунковий букет ручної роботи" },
-    { src: "assets/images/gallery/food/7.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-    { src: "assets/images/gallery/food/8.webp", alt:"Їстівний подарунковий букет ручної роботи" },]
+    images:[ { src: "assets/images/gallery/food/1_result.webp", alt: "Їстівний подарунковий букет ручної роботи" },
+      { src: "assets/images/gallery/food/2_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
+     { src: "assets/images/gallery/food/3_result.webp", alt: "Їстівний подарунковий букет ручної роботи" },
+      { src: "assets/images/gallery/food/4_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
+     { src: "assets/images/gallery/food/5_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
+     { src: "assets/images/gallery/food/6_result.webp", alt: "Їстівний подарунковий букет ручної роботи" },
+    { src: "assets/images/gallery/food/7_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
+    { src: "assets/images/gallery/food/8_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },]
     
 },
 {
     title:"Букет з атласної стрічки",
-    images:[{src:"assets/images/gallery/ribbon/1.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/2.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/3.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/4.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/5.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/6.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/7.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/8.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/9.webp", alt:"Букет із атласних стрічок handmade"},
+    images:[{src:"assets/images/gallery/ribbon/1_result.webp", alt:"Букет із атласних стрічок handmade"},
+        {src:"assets/images/gallery/ribbon/2_result.webp", alt:"Букет із атласних стрічок handmade"},
+        {src:"assets/images/gallery/ribbon/3_result.webp", alt:"Букет із атласних стрічок handmade"},
+        {src:"assets/images/gallery/ribbon/4_result.webp", alt:"Букет із атласних стрічок handmade"},
+        {src:"assets/images/gallery/ribbon/5_result.webp", alt:"Букет із атласних стрічок handmade"},
+        {src:"assets/images/gallery/ribbon/6_result.webp", alt:"Букет із атласних стрічок handmade"},
+        {src:"assets/images/gallery/ribbon/7_result.webp", alt:"Букет із атласних стрічок handmade"},
+        {src:"assets/images/gallery/ribbon/8_result.webp", alt:"Букет із атласних стрічок handmade"},
+        {src:"assets/images/gallery/ribbon/9_result.webp", alt:"Букет із атласних стрічок handmade"},
    ]
 },
 {
     title:"Декор речей",
-    images:[{src:"assets/images/gallery/decor/1.webp",alt:"Декорування предметів ручної роботи"},
-    {src:"assets/images/gallery/decor/2.webp",alt:"Декорування предметів ручної роботи"},
-{src:"assets/images/gallery/decor/3.webp",alt:"Декорування предметів ручної роботи"},
-{src:"assets/images/gallery/decor/4.webp",alt:"Декорування предметів ручної роботи"},]
+    images:[{src:"assets/images/gallery/decor/1_result.webp",alt:"Декорування предметів ручної роботи"},
+    {src:"assets/images/gallery/decor/2_result.webp",alt:"Декорування предметів ручної роботи"},
+{src:"assets/images/gallery/decor/3_result.webp",alt:"Декорування предметів ручної роботи"},
+{src:"assets/images/gallery/decor/4_result.webp",alt:"Декорування предметів ручної роботи"},]
 },
 {
     title:"В'язання",
-    images:[{src:"assets/images/gallery/knitting/1.webp",alt:"В'язані вироби ручної роботи"},
-        {src:"assets/images/gallery/knitting/1.webp",alt:"В'язані вироби ручної роботи"},
+    images:[{src:"assets/images/cards/handmade_result.webp",alt:"В'язані вироби ручної роботи"},
+        
     ]
 }
 ];
@@ -93,51 +93,52 @@ function openGalleryModal(images){
 const modal = document.createElement('div');
 modal.className = "modal-gallery";
 
+// 👉 wrapper
+const wrapper = document.createElement('div');
+wrapper.className = "modal-wrapper";
+
+// 👉 scroll зона
 const content = document.createElement('div');
 content.className = "modal-content";
 
 images.forEach(img=>{
+    const image = document.createElement('img');
+    image.src = img.src;
+    image.alt = img.alt;
 
-const image = document.createElement('img');
+    image.addEventListener("click", () => {
+        openFullscreen(img.src, img.alt);
+    });
 
-image.src = img.src;
-image.alt = img.alt;
-
-image.addEventListener("click",()=>{
-openFullscreen(img.src,img.alt);
+    content.appendChild(image);
 });
 
-content.appendChild(image);
-
-});
-
-// ✅ кнопка закриття
-const closeBtn = document.createElement('div');
-closeBtn.className = 'modal-close';
-closeBtn.innerHTML = "&times;";
-
-closeBtn.addEventListener('click', () => {
-  modal.remove();
-});
+// 👉 footer
 const footer = document.createElement('div');
 footer.className = "modal-footer";
 
 footer.innerHTML = `
-  <a href="contacts.html" class="btn-primary">
+<a href="contacts.html" class="order-btn">
     Замовити
 </a>
 `;
-// ✅ ВАЖЛИВО — додаємо в modal
-modal.appendChild(closeBtn);
-modal.appendChild(content);
-modal.appendChild(footer);
-// закриття по фону
-modal.addEventListener("click",(e)=>{
-if(e.target === modal){
-modal.remove();
-}
-});
 
+// 👉 close
+const closeBtn = document.createElement('div');
+closeBtn.className = 'modal-close';
+closeBtn.innerHTML = "&times;";
+closeBtn.onclick = () => modal.remove();
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.remove();
+    }
+});
+// збірка
+wrapper.appendChild(closeBtn);
+wrapper.appendChild(content);
+wrapper.appendChild(footer);
+
+modal.appendChild(wrapper);
 document.body.appendChild(modal);
 }
 function openFullscreen(src,alt){
