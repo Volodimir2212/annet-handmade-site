@@ -20,7 +20,8 @@ const works = [
      { src: "assets/images/gallery/food/5_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
      { src: "assets/images/gallery/food/6_result.webp", alt: "Їстівний подарунковий букет ручної роботи" },
     { src: "assets/images/gallery/food/7_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-    { src: "assets/images/gallery/food/8_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },]
+    
+{ src: "assets/images/gallery/food/9_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },]
     
 },
 {
