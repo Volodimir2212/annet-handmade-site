@@ -21,8 +21,9 @@ const works = [
      { src: "assets/images/gallery/food/6_result.webp", alt: "Їстівний подарунковий букет ручної роботи" },
     { src: "assets/images/gallery/food/7_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
     
-{ src: "assets/images/gallery/food/9_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },]
-    
+{ src: "assets/images/gallery/food/9_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
+    { src: "assets/images/gallery/food/10_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
+    { src: "assets/images/gallery/food/11_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },]
 },
 {
     title:"Букет з атласної стрічки",
