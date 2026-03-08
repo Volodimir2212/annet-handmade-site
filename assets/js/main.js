@@ -23,7 +23,11 @@ const works = [
     
 { src: "assets/images/gallery/food/9_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
     { src: "assets/images/gallery/food/10_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-    { src: "assets/images/gallery/food/11_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },]
+   
+ { src: "assets/images/gallery/food/12_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
+ { src: "assets/images/gallery/food/13_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
+ { src: "assets/images/gallery/food/14_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
+ { src: "assets/images/gallery/food/15_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },]
 },
 {
     title:"Букет з атласної стрічки",
