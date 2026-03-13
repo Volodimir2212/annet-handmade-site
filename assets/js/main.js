@@ -1,3 +1,15 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBSTnP39YQzsi1OSOzGA4Q-2aBYdNoQwsk",
+  authDomain: "gellery-4c603.firebaseapp.com",
+  projectId: "gellery-4c603",
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 const burger = document.getElementById("burger");
 const menu = document.getElementById("menu");
 
@@ -10,76 +22,101 @@ document.querySelectorAll(".menu a")
         menu.classList.remove("active");
     });
 });
-const works = [
-{
-    title:"Їстівний букет",
-    images:[ { src: "assets/images/gallery/food/1_result.webp", alt: "Їстівний подарунковий букет ручної роботи" },
-      { src: "assets/images/gallery/food/2_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-     { src: "assets/images/gallery/food/3_result.webp", alt: "Їстівний подарунковий букет ручної роботи" },
-      { src: "assets/images/gallery/food/4_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-     { src: "assets/images/gallery/food/5_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-     { src: "assets/images/gallery/food/6_result.webp", alt: "Їстівний подарунковий букет ручної роботи" },
-    { src: "assets/images/gallery/food/7_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-    { src: "assets/images/gallery/food/8_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-{ src: "assets/images/gallery/food/9_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-    { src: "assets/images/gallery/food/10_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
-   { src: "assets/images/gallery/food/11_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
- { src: "assets/images/gallery/food/12_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
- { src: "assets/images/gallery/food/13_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
- { src: "assets/images/gallery/food/14_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },
- { src: "assets/images/gallery/food/15_result.webp", alt:"Їстівний подарунковий букет ручної роботи" },]
-},
-{
-    title:"Букет з атласної стрічки",
-    images:[{src:"assets/images/gallery/ribbon/1_result.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/2_result.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/3_result.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/4_result.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/5_result.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/6_result.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/7_result.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/8_result.webp", alt:"Букет із атласних стрічок handmade"},
-        {src:"assets/images/gallery/ribbon/9_result.webp", alt:"Букет із атласних стрічок handmade"},
-         {src:"assets/images/gallery/ribbon/10_result.webp", alt:"Букет із атласних стрічок handmade"},
-   ]
-},
-{
-    title:"Декор речей",
-    images:[{src:"assets/images/gallery/decor/1_result.webp",alt:"Декорування предметів ручної роботи"},
-    {src:"assets/images/gallery/decor/2_result.webp",alt:"Декорування предметів ручної роботи"},
-{src:"assets/images/gallery/decor/3_result.webp",alt:"Декорування предметів ручної роботи"},
-{src:"assets/images/gallery/decor/4_result.webp",alt:"Декорування предметів ручної роботи"},
-{src:"assets/images/gallery/decor/5_result.webp",alt:"Декорування предметів ручної роботи"},]
-},
-{
-    title:"В'язання",
-    images:[{src:"assets/images/cards/handmade_result.webp",alt:"В'язані вироби ручної роботи"},
-        
-    ]
+
+const works = {};
+let categories = [];
+
+async function loadGallery(){
+
+/* LOAD CATEGORIES */
+
+const catSnapshot = await getDocs(collection(db,"categories"));
+
+categories = [];
+
+catSnapshot.forEach(doc=>{
+
+const data = doc.data();
+
+categories.push({
+id: doc.id,
+name: data.name,
+displayname: data.displayname,
+coverUrl: data.coverUrl,
+order: data.order
+});
+
+});
+
+/* SORT CATEGORIES */
+
+categories.sort((a,b)=>a.order-b.order);
+
+/* LOAD PHOTOS */
+
+const snapshot = await getDocs(collection(db,"photos"));
+
+snapshot.forEach(doc => {
+
+const data = doc.data();
+
+if(!data.category || !data.url) return;
+
+if(!works[data.category]){
+works[data.category] = [];
 }
-];
+
+works[data.category].push({
+src: data.url,
+alt: "handmade робота",
+optimized: data.optimized
+});
+
+});
+
+renderGallery();
+
+}
+
+function renderGallery(){
 
 const grid = document.getElementById("gallery-grid");
 
-if(grid){
+if(!grid) return;
 
-works.forEach(work=>{
+grid.innerHTML = "";
+
+categories.forEach(category => {
+
+const images = works[category.name];
+
+if(!images || images.length === 0) return;
+
+const imageUrl = getOptimizedUrl(
+category.coverUrl || images[0].src,
+false
+);
 
 grid.innerHTML += `
-<div class="gallery-card" data-category="${work.title}"> 
+
+<div class="gallery-card" data-category="${category.name}"> 
 
 <div class="gallery-image">
-<img src="${work.images[0].src}" alt="${work.images[0].alt}" loading="lazy">
+<img src="${imageUrl}" loading="lazy">
 </div>
 
 <div class="gallery-info">
-<h3>${work.title}</h3>
+<h3>${category.displayname}</h3>
 </div>
 
 </div>
+
 `;
 
-});}
+});
+
+}
+
 document.addEventListener('click', (e) => {
 
 const card = e.target.closest('[data-category]');
@@ -87,75 +124,97 @@ if(!card) return;
 
 const categoryTitle = card.getAttribute('data-category');
 
-const category = works.find(
-w => w.title === categoryTitle
-);
+const images = works[categoryTitle];
 
-if(!category) return;
+if(!images) return;
 
-openGalleryModal(category.images);
+openGalleryModal(images);
 
 });
+function getOptimizedUrl(url, optimized){
+
+if(optimized) return url;
+
+return url.replace(
+"/upload/",
+"/upload/f_webp,q_auto:good,w_1600/"
+);
+
+}
 function openGalleryModal(images){
 
 const modal = document.createElement('div');
 modal.className = "modal-gallery";
 
-// 👉 wrapper
 const wrapper = document.createElement('div');
 wrapper.className = "modal-wrapper";
 
-// 👉 scroll зона
 const content = document.createElement('div');
 content.className = "modal-content";
 
 images.forEach(img=>{
-    const image = document.createElement('img');
-    image.src = img.src;
-    image.alt = img.alt;
 
-    image.addEventListener("click", () => {
-        openFullscreen(img.src, img.alt);
-    });
+const image = document.createElement('img');
 
-    content.appendChild(image);
+/* оптимізація */
+
+const optimizedUrl = getOptimizedUrl(img.src, img.optimized);
+
+image.src = optimizedUrl;
+image.alt = img.alt;
+
+image.addEventListener("click", () => {
+
+openFullscreen(optimizedUrl, img.alt);
+
 });
 
-// 👉 footer
+content.appendChild(image);
+});
+
 const footer = document.createElement('div');
 footer.className = "modal-footer";
 
 footer.innerHTML = `
 <a href="contacts.html" class="order-btn">
-    Замовити
+Замовити
 </a>
 `;
 
-// 👉 close
 const closeBtn = document.createElement('div');
 closeBtn.className = 'modal-close';
 closeBtn.innerHTML = "&times;";
 closeBtn.onclick = () => modal.remove();
+
 modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-        modal.remove();
-    }
+if (e.target === modal) {
+modal.remove();
+}
 });
-// збірка
+
 wrapper.appendChild(closeBtn);
 wrapper.appendChild(content);
 wrapper.appendChild(footer);
 
 modal.appendChild(wrapper);
 document.body.appendChild(modal);
+
 }
+
 function openFullscreen(src,alt){
 
 const viewer = document.createElement("div");
 viewer.className="fullscreen-img";
 
 const img=document.createElement("img");
-img.src=src;
+
+/* більша якість для fullscreen */
+
+img.src = src.replace(
+"/upload/",
+"/upload/f_webp,q_auto:good,w_1200/"
+);
+
 img.alt=alt;
 
 viewer.appendChild(img);
@@ -168,3 +227,4 @@ document.body.appendChild(viewer);
 
 }
 
+loadGallery();

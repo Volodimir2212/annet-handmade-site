@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Адмін Панель | Annet Handmade</title>
+
+<link rel="stylesheet" href="assets/css/variables.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+
+<style>
+
+.admin-login{
+max-width:400px;
+margin:80px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 15px 35px rgba(149,103,106,.35);
+}
+
+.admin-login h2{
+margin-bottom:20px;
+text-align:center;
+color: var(--primary);
+}
+
+.admin-login input{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:6px;
+}
+
+.admin-panel{
+display:none;
+max-width:1000px;
+margin:60px auto;
+}
+
+.admin-section{
+margin-bottom:40px;
+}
+
+.admin-section h3{
+margin-bottom:15px;
+}
+
+</style>
+
+</head>
+<body>
+
+<header class="header">
+
+<div class="header-container">
+
+<div class="header-left">
+
+<img src="assets/images/logo/logo.png"
+alt="Annet Handmade"
+class="logo">
+
+<div class="brand">
+<h1>Адмін Панель</h1>
+
+<nav class="menu" id="menu">
+<a href="index.html">Головна</a>
+<a href="gallery.html">Галерея</a>
+<a href="info.html">інформація</a>
+<a href="contacts.html">Контакти</a>
+</nav>
+</div>
+
+</div>
+
+<div class="header-right">
+
+<button class="burger" id="burger">
+<span></span>
+<span></span>
+<span></span>
+</button>
+
+<div class="header-actions">
+
+<a href="tel:+380662421650" class="phone">
+<img src="assets/images/icons/phone.webp">
++38 (066) 242 16 50
+</a>
+
+<a href="contacts.html" class="btn-primary">
+Замовити
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+<div class="menuadmin">
+
+<a href="admin.html">⬅ Панель</a>
+
+<a href="admin-categories.html">Категорії</a>
+
+<a href="admin-photos.html">Фото</a>
+
+</div>
+<!-- LOGIN -->
+
+<div class="admin-login" id="login-box">
+
+<h2>Вхід адміністратора</h2>
+
+<input type="email" id="email" placeholder="Email">
+
+<input type="password" id="password" placeholder="Пароль">
+
+<button class="btn-primary" id="login-btn">
+Увійти
+</button>
+
+</div>
+
+<!-- ADMIN PANEL -->
+
+<div class="admin-grid" id="admin-panel">
+
+<div class="categories-grid">
+
+<a href="admin-categories.html" class="category-card">
+
+<h3>Категорії</h3>
+
+<p>
+Додавання, видалення, сортування
+та вибір фото для категорії
+</p>
+
+</a>
+
+<a href="admin-photos.html" class="category-card">
+
+<h3>Фото</h3>
+
+<p>
+Додавання та видалення фото
+галереї
+</p>
+
+</a>
+
+</div>
+<div class="admin-grid">
+<button id="logout-btn" class="btn-primary">
+Вийти
+</button>
+</div>
+
+</div>
+<footer class="footer">
+
+<div class="footer-content">
+
+<img src="assets/images/logo/logo.png"
+class="footer-logo">
+
+<p>© 2026 Annet Handmade</p>
+
+<div class="socials">
+
+<a href="https://www.instagram.com/homa_ania" class="social">
+<img src="assets/images/icons/instagram.webp">
+</a>
+
+<a href="https://www.facebook.com/share/1BzeVex6kh" class="social">
+<img src="assets/images/icons/facebook.webp">
+</a>
+
+<a href="https://t.me/annahoma3003" class="social">
+<img src="assets/images/icons/Telegram.webp">
+</a>
+
+<a href="https://www.tiktok.com/@useraniuta" class="social">
+<img src="assets/images/icons/tiktok.webp">
+</a>
+
+<a href="https://wa.me/380986157381" class="social">
+<img src="assets/images/icons/wathapp.webp">
+</a>
+
+</div>
+
+<a href="tel:+380662421650" class="footer-phone">
+<img src="assets/images/icons/phone.webp">
++38 (066) 242 16 50
+</a>
+
+</div>
+
+</footer>
+
+<script type="module" src="assets/js/admin.js"></script>
+
+</body>
+</html>

@@ -89,39 +89,6 @@ body {
 .menu a:hover::after {
     width: 100%;
 }
-.menuadmin {
-    margin-top: 8px;
-}
-
-.menuadmin a {
-    margin-right: 15px;
-    text-decoration: none;
-    color: var(--accent);
-    font-size: 14px;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-/* зміна кольору */
-.menuadmin a:hover {
-    color: var(--primary);
-}
-
-/* underline animation */
-.menuadmin a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 0%;
-    height: 2px;
-    background: var(--primary);
-    transition: width 0.3s ease;
-}
-
-.menuadmin a:hover::after {
-    width: 100%;
-}
 /* RIGHT SIDE */
 .header-right {
     text-align: right;
@@ -341,16 +308,6 @@ a{
     align-items:center;
     justify-content:center;
     color: var(--accent);
-}
-.category-card p{
-    text-align: center;
-    color: var(--primary);
-}
-.admin-grid{
-    padding: 50px;
-}
-.admin-grid button{
-    align-items: center;
 }
 .socials{
     display:flex;
